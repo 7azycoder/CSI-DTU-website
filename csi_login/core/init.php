@@ -4,9 +4,9 @@ session_start();
 $GLOBALS['config']= array(
                     'mysql' => array(
                     'host' => 'localhost',
-                    'username' => 'root',//'csi2k15',
-                    'password' => '',//'qwerty107',
-                    'db' => 'cryptex16'//'phoenix'
+                    'username' => 'root',
+                    'password' => '',
+                    'db' => 'csidtu'
 	),
 'remember' => array(
 
@@ -32,10 +32,6 @@ if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Confi
 
          if($hashCheck->count()) {
              $user = new User($hashCheck->first()->user_id);
-             $user->login(); 
-         }  
+             $user->login();
+         }
 }
-
-
-
-

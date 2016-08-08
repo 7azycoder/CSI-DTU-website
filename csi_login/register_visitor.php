@@ -3,12 +3,12 @@
 ob_start();
 require_once 'core/init.php';
 
-//$_SESSION["visitor"]=1;   
-//Redirect::to('../index.php');   
+//$_SESSION["visitor"]=1;
+//Redirect::to('../index.php');
 
 if(Input::exists()) {
 	$url="";
-	
+
 	if (isset($_POST["name"])&&$_POST["name"]!="") {
 		if (strlen($_POST["name"])>=50) {
 			$url=$url."1";
@@ -47,9 +47,9 @@ if(Input::exists()) {
 
 	if ($url==="222") {
 		//$dbh = new PDO('mysql:host=localhost;dbname='.$GLOBALS['config']['db'], $GLOBALS['config']['username'], $GLOBALS['config']['password']);
-		 $dbh = new PDO("mysql:host=localhost;dbname=cryptex16","cryptexmod","CSImod2016");
+		 $dbh = new PDO("mysql:host=localhost;dbname=csidtu","root","");
 		//$dbh = new PDO("mysql:host=localhost;dbname=phoenix","csi2k15","qwerty107");
-		
+
 		$stmt = $dbh->prepare("INSERT INTO visit (name,phone,email) VALUES (:name, :phone,:email)");
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':phone', $phone);
@@ -65,7 +65,7 @@ echo $name;echo $phone;echo $email;
 $stmt->execute();
 $_SESSION["visit"]=1;
 		Redirect::to('../index.php');
-		
+
 	}
 	else{
 		$url='../index.php?msg='.$url;
@@ -73,7 +73,7 @@ $_SESSION["visit"]=1;
 	}
 }
 // else{
-// 	Redirect::to('../index.php?msg=000');   
+// 	Redirect::to('../index.php?msg=000');
 // }
 // if(Input::exists()) {
 //   	$validate = new Validate();
@@ -99,15 +99,15 @@ $_SESSION["visit"]=1;
 // 	echo "baba";
 // }
 // 	if($validation->passed()) {
- 
-// 		$_SESSION["visitor"]=1;           
-//         Redirect::to('index.php');    
-//     } 
-              
+
+// 		$_SESSION["visitor"]=1;
+//         Redirect::to('index.php');
+//     }
+
 // } else {
-// 		Redirect::to('../index.php?i=1');    
-    
+// 		Redirect::to('../index.php?i=1');
+
 // 	}
 // }
-// Redirect::to('../index.php?i=2');    
+// Redirect::to('../index.php?i=2');
 ?>
